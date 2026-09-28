@@ -1,0 +1,905 @@
+```html
+<!-- filepath: c:\Users\User\Desktop\Amazon Project\landing_page\landing.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shamoon Ijaz | Business Development Leader</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+    :root {
+      --ink:#fafafa;
+      --muted:#a7a6a6;
+      --nav:#b6b5b5;
+      --strip:#8b8a8a;
+      --pill:#fff;
+      --pill-ink:#050505;
+      --sub:#a2a9b8;
+      --hair:rgba(196,214,232,.72);
+      --chev:rgba(214,232,250,.90);
+      --veil:6,10,18;
+      --u:calc(100vh / 1058);
+      --uw:calc(100vw / 1487);
+      --h:clamp(var(--u),calc(var(--u) * .65 + var(--uw) * .35),calc(var(--u) * 1.16));
+    }
+
+    @supports (height:100dvh) {
+      :root { --u:calc(100dvh / 1058); }
+    }
+
+    * { box-sizing:border-box; }
+    html,body { width:100%; min-height:100%; margin:0; overflow-x:hidden; background:#050505; }
+    body {
+      color:var(--ink);
+      font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;
+      text-rendering:geometricPrecision;
+      -webkit-font-smoothing:antialiased;
+    }
+    h1,h2,h3,h4 {
+      font-family:"Space Grotesk",Manrope,system-ui,sans-serif;
+      text-wrap:balance;
+    }
+
+    .stage { position:relative; width:100%; height:100vh; min-height:680px; overflow:hidden; }
+    .plate { position:absolute; inset:0; overflow:hidden; }
+    .plate-video {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      transform:none;
+      object-fit:cover;
+      object-position:50% 50%;
+      pointer-events:none;
+    }
+
+    .plate::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:none;
+    }
+
+    .topbar { position:absolute; inset:0; pointer-events:none; }
+    .brand {
+      position:absolute;
+      left:calc(75 * var(--u));
+      top:calc(27 * var(--u));
+      width:calc(31.5 * var(--u));
+      height:calc(48.5 * var(--u));
+      pointer-events:auto;
+    }
+    .brand svg { width:100%; height:100%; display:block; }
+
+    .links {
+      position:absolute;
+      left:50%;
+      top:calc(51 * var(--u));
+      transform:translate(-50%,-50%);
+      display:flex;
+      gap:calc(25 * var(--u));
+      color:var(--nav);
+      font-size:calc(19 * var(--u));
+      font-weight:400;
+      white-space:nowrap;
+      pointer-events:auto;
+    }
+    a { color:inherit; text-decoration:none; }
+
+    .pill {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      background:var(--pill);
+      color:var(--pill-ink);
+      white-space:nowrap;
+    }
+    .pill-nav {
+      position:absolute;
+      right:calc(75.4 * var(--u));
+      top:calc(27 * var(--u));
+      width:calc(175 * var(--u));
+      height:calc(49 * var(--u));
+      font-size:calc(20.6 * var(--u));
+      font-weight:500;
+      pointer-events:auto;
+    }
+    .pill span { transform:translateY(var(--u)); }
+
+    .hero {
+      position:absolute;
+      left:50%;
+      top:calc(50% - 30px);
+      width:min(92vw,calc(1000 * var(--u)));
+      transform:translate(-50%,-50%);
+      text-align:left;
+    }
+    .headline {
+      margin:0;
+      font-size:clamp(38px,calc(64 * var(--h)),72px);
+      line-height:1.16;
+      letter-spacing:0;
+      font-weight:500;
+      white-space:nowrap;
+      text-align:center;
+      text-shadow:0 2px 22px rgba(0,0,0,.86);
+    }
+    .headline span,.sub span { display:block; }
+    .eyebrow,.headline,.person-name,.sub {
+      position:relative;
+      top:calc(-34 * var(--h));
+    }
+    .eyebrow {
+      margin:0 0 calc(10 * var(--h));
+      color:var(--muted);
+      font-size:calc(19 * var(--h));
+      font-weight:500;
+      letter-spacing:calc(.4 * var(--h));
+      text-transform:uppercase;
+      text-align:center;
+    }
+    .person-name {
+      margin:calc(16 * var(--h)) 0 0;
+      color:var(--ink);
+      font-size:calc(30 * var(--h));
+      line-height:1.1;
+      font-weight:500;
+      letter-spacing:0;
+      text-align:center;
+      text-shadow:0 2px 8px rgba(0,0,0,.92),0 0 18px rgba(0,0,0,.7);
+    }
+    .sub {
+      position:relative;
+      left:calc(48 * var(--h));
+      max-width:calc(790 * var(--h));
+      margin-left:auto;
+      margin-right:auto;
+      margin:calc(32 * var(--h)) 0 0;
+      color:#eef2f7;
+      font-size:calc(20.7 * var(--h));
+      line-height:calc(23.5 * var(--h));
+      font-weight:600;
+      -webkit-text-stroke:.15px rgba(0,0,0,.35);
+      word-spacing:calc(1.8 * var(--h));
+      white-space:normal;
+      text-align:center;
+      text-shadow:0 2px 5px rgba(0,0,0,.98),0 0 3px rgba(0,0,0,.92),0 0 14px rgba(0,0,0,.62);
+    }
+    .actions {
+      display:flex;
+      align-items:center;
+      gap:calc(45 * var(--h));
+      margin-top:calc(42 * var(--h));
+      justify-content:center;
+    }
+    .pill-cta {
+      width:calc(175.6 * var(--h));
+      height:calc(50 * var(--h));
+      font-size:calc(20.6 * var(--h));
+      font-weight:500;
+      position:relative;
+      overflow:hidden;
+      border:var(--hairline,1px) solid rgba(214,226,240,.72);
+      background:
+        linear-gradient(135deg,rgba(56,42,29,.58) 0%,rgba(12,28,48,.72) 48%,rgba(7,18,34,.78) 100%),
+        linear-gradient(90deg,rgba(255,226,178,.16),rgba(150,196,244,.12));
+      color:var(--ink);
+      -webkit-backdrop-filter:blur(18px) saturate(.55);
+      backdrop-filter:blur(18px) saturate(.55);
+      box-shadow:
+        0 calc(var(--u) * -2) calc(var(--u) * 20) rgba(255,224,176,.20),
+        0 0 28px rgba(168,204,252,.16),
+        inset 0 1px 0 rgba(255,251,242,.45);
+      transition:transform .25s ease,background-color .25s ease;
+    }
+    .pill-cta:hover,
+    .pill-cta:focus-visible {
+      transform:translateY(-3px);
+      background:
+        linear-gradient(90deg,rgba(255,226,178,.28),rgba(150,196,244,.20)),
+        rgba(255,255,255,.2);
+    }
+    .ghost {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:calc(50 * var(--h));
+      padding:0 calc(18 * var(--h));
+      border:var(--hairline,1px) solid rgba(214,226,240,.72);
+      border-radius:999px;
+      color:#fff;
+      font-size:calc(20.6 * var(--h));
+      font-weight:500;
+      letter-spacing:0;
+      background:
+        linear-gradient(135deg,rgba(56,42,29,.58) 0%,rgba(12,28,48,.72) 48%,rgba(7,18,34,.78) 100%),
+        linear-gradient(90deg,rgba(255,226,178,.16),rgba(150,196,244,.12));
+      -webkit-backdrop-filter:blur(18px) saturate(.55);
+      backdrop-filter:blur(18px) saturate(.55);
+      box-shadow:
+        0 calc(var(--u) * -2) calc(var(--u) * 20) rgba(255,224,176,.20),
+        0 0 28px rgba(168,204,252,.16),
+        inset 0 1px 0 rgba(255,251,242,.45);
+      transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+    }
+    .actions .ghost:hover,
+    .actions .ghost:focus-visible {
+      background:
+        linear-gradient(180deg,rgba(6,12,22,.04) 45%,rgba(6,12,22,.34) 100%),
+        linear-gradient(90deg,rgba(255,226,178,.25),rgba(150,196,244,.18)),
+        rgba(255,255,255,.18);
+      border-color:rgba(238,247,255,.92);
+      color:var(--ink);
+    }
+    .actions .pill-cta:hover,
+    .actions .pill-cta:focus-visible,
+    .actions .ghost:hover,
+    .actions .ghost:focus-visible {
+      background:
+        radial-gradient(circle at 0 0,rgba(255,226,178,.26),transparent 30%),
+        radial-gradient(circle at 100% 0,rgba(150,196,244,.24),transparent 30%),
+        radial-gradient(circle at 0 100%,rgba(150,196,244,.18),transparent 28%),
+        radial-gradient(circle at 100% 100%,rgba(255,226,178,.20),transparent 28%),
+        linear-gradient(180deg,rgba(6,12,22,.04) 45%,rgba(6,12,22,.34) 100%),
+        rgba(10,27,47,.82);
+      border-color:rgba(238,247,255,.92);
+      box-shadow:0 10px 28px rgba(0,0,0,.28),0 0 26px rgba(168,204,252,.15);
+      transform:translateY(-4px);
+    }
+    .hero-links {
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:calc(62 * var(--h));
+      margin-top:calc(72 * var(--h));
+      color:#fff;
+      font-size:calc(22 * var(--h));
+      letter-spacing:calc(.08 * var(--h));
+    }
+    .hero-links a {
+      display:inline-flex;
+      align-items:center;
+      gap:calc(7 * var(--h));
+      transition:color .2s ease,transform .2s ease;
+    }
+    .hero-links a::before {
+      content:">";
+      color:var(--ink);
+      font-size:1.3em;
+      font-weight:600;
+      line-height:1;
+      transition:transform .2s ease;
+    }
+    .hero-links a:hover,
+    .hero-links a:focus-visible {
+      color:var(--ink);
+      transform:translateY(-2px);
+    }
+    .hero-links a:hover::before,
+    .hero-links a:focus-visible::before { transform:translateX(3px); }
+
+    .site-section {
+      position:relative;
+      min-height:70vh;
+      padding:clamp(80px,10vw,150px) max(24px,7vw);
+      background:linear-gradient(135deg,#050912 0%,#0c2035 48%,#172837 100%);
+      border-top:1px solid rgba(255,226,178,.16);
+    }
+    #about {
+      background:linear-gradient(135deg,#050912 0%,#0c2035 48%,#172837 100%);
+    }
+    .section-inner {
+      width:min(100%,1100px);
+      margin:0 auto;
+    }
+    .section-label {
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .section-title {
+      max-width:760px;
+      margin:0;
+      color:var(--ink);
+      font-size:clamp(34px,4.2vw,62px);
+      line-height:1.08;
+      font-weight:500;
+      letter-spacing:0;
+    }
+    .section-copy {
+      max-width:680px;
+      margin:28px 0 0;
+      color:var(--muted);
+      font-size:clamp(17px,2vw,22px);
+      line-height:1.6;
+    }
+    .about-copy {
+      max-width:none;
+      grid-column:1;
+      grid-row:1;
+    }
+    .about-layout {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(180px,260px);
+      align-items:start;
+      gap:clamp(36px,6vw,90px);
+    }
+    .about-photo {
+      width:min(100%,260px);
+      aspect-ratio:1;
+      margin-top:4px;
+      grid-column:2;
+      grid-row:1;
+      overflow:hidden;
+      border-radius:50%;
+    }
+    .about-photo img {
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.38);
+      transform-origin:50% 58%;
+      clip-path:none;
+    }
+    .about-copy h3 {
+      margin:0;
+      color:var(--ink);
+      font-size:clamp(24px,3vw,40px);
+      line-height:1.15;
+      font-weight:500;
+    }
+    .about-copy p {
+      margin:24px 0 0;
+      color:var(--muted);
+      font-size:clamp(17px,2vw,22px);
+      line-height:1.6;
+    }
+    .about-copy strong {
+      color:var(--ink);
+      font-weight:600;
+    }
+    .about-copy ul {
+      display:grid;
+      gap:12px;
+      margin:22px 0 0;
+      padding-left:25px;
+      color:var(--muted);
+      font-size:clamp(17px,2vw,22px);
+      line-height:1.5;
+    }
+    .focus-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:30px 42px;
+      margin-top:32px;
+    }
+    .focus-item h4 {
+      margin:0;
+      color:var(--ink);
+      font-size:clamp(19px,2vw,26px);
+      line-height:1.25;
+      font-weight:500;
+    }
+    .focus-item p {
+      margin-top:10px;
+      font-size:clamp(16px,1.6vw,19px);
+    }
+    .service-list,.experience-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:55px;
+    }
+    .service-item,.experience-item {
+      position:relative;
+      isolation:isolate;
+      min-height:180px;
+      padding:30px;
+      overflow:hidden;
+      border:1px solid rgba(196,214,232,.16);
+      border-radius:18px;
+      background:rgba(5,5,5,.72);
+      box-shadow:0 14px 30px rgba(0,0,0,.16);
+      transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+    }
+    .service-item::before,.experience-item::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      border-radius:inherit;
+      opacity:0;
+      background:
+        radial-gradient(circle at 0 0,rgba(255,226,178,.72),transparent 24%),
+        radial-gradient(circle at 100% 0,rgba(150,196,244,.66),transparent 24%),
+        radial-gradient(circle at 0 100%,rgba(150,196,244,.48),transparent 22%),
+        radial-gradient(circle at 100% 100%,rgba(255,226,178,.54),transparent 22%);
+      transition:opacity .3s ease;
+    }
+    .service-item:hover,.service-item:focus-within,
+    .experience-item:hover,.experience-item:focus-within {
+      border-color:rgba(214,226,240,.62);
+      box-shadow:0 18px 42px rgba(0,0,0,.3),0 0 26px rgba(168,204,252,.13);
+      transform:translateY(-6px);
+    }
+    .service-item:hover::before,.service-item:focus-within::before,
+    .experience-item:hover::before,.experience-item:focus-within::before {
+      opacity:1;
+    }
+    .experience-item:last-child {
+      grid-column:1 / -1;
+    }
+    .service-item h3,.experience-item h3 {
+      margin:0;
+      color:var(--ink);
+      font-size:21px;
+      line-height:1.25;
+      font-weight:600;
+    }
+    .service-item p,.experience-item p {
+      margin:14px 0 0;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .experience-intro {
+      max-width:760px;
+      margin:28px 0 0;
+      color:var(--muted);
+      font-size:clamp(17px,2vw,22px);
+      line-height:1.6;
+    }
+    .experience-intro strong {
+      color:var(--ink);
+      font-weight:600;
+    }
+    .experience-item em {
+      display:block;
+      margin-top:8px;
+      color:var(--muted);
+      font-style:normal;
+    }
+    .core-expertise {
+      margin:42px 0 0;
+      color:var(--muted);
+      font-size:clamp(17px,2vw,22px);
+      line-height:1.6;
+    }
+    .core-expertise strong {
+      color:var(--ink);
+      font-weight:600;
+    }
+    .service-cta {
+      margin:42px 0 0;
+      color:var(--ink);
+      font-size:clamp(20px,2.2vw,28px);
+      font-weight:500;
+    }
+    .contact-section { min-height:55vh; }
+    .contact-link {
+      display:inline-flex;
+      margin-top:35px;
+      padding:17px 28px;
+      border-radius:999px;
+      background:var(--pill);
+      color:var(--pill-ink);
+      font-weight:600;
+    }
+
+    .logos {
+      position:absolute;
+      left:50%;
+      bottom:calc(27 * var(--u));
+      width:calc(741 * var(--u));
+      height:calc(38 * var(--u));
+      transform:translateX(calc(-50% + 20 * var(--u)));
+      color:var(--strip);
+    }
+    .lg {
+      position:absolute;
+      display:flex;
+      padding:calc(5 * var(--h)) calc(10 * var(--h));
+      border-radius:calc(8 * var(--h));
+      color:#d7dbe2;
+      font-family:IpsumMark,Manrope,sans-serif;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .lg svg { flex:none; color:currentColor; }
+      background:linear-gradient(90deg,rgba(2,6,14,.48),rgba(2,6,14,.22) 72%,rgba(2,6,14,0));
+      text-shadow:0 2px 5px rgba(0,0,0,.98),0 0 3px rgba(0,0,0,.9);
+    .lg1 { left:calc(-.5 * var(--u)); bottom:0; font-size:calc(18.1 * var(--u)); }
+    .lg1 svg { width:calc(30.5 * var(--u)); height:calc(31 * var(--u)); }
+    .lg2 { left:calc(206.5 * var(--u)); bottom:0; font-size:calc(18.5 * var(--u)); }
+    .lg2 svg { width:calc(24.5 * var(--u)); height:calc(30 * var(--u)); }
+    .lg3 { left:calc(416.5 * var(--u)); bottom:0; font-size:calc(16.15 * var(--u)); }
+    .lg3 svg { width:calc(28.5 * var(--u)); height:calc(28 * var(--u)); }
+    .lg4 { left:calc(620.5 * var(--u)); bottom:0; font-size:calc(15.3 * var(--u)); }
+    .lg4 svg { width:calc(28.5 * var(--u)); height:calc(25.5 * var(--u)); }
+    .dot {
+      display:inline-block;
+      width:.09em;
+      height:.09em;
+      margin-left:.06em;
+      border-radius:50%;
+      background:currentColor;
+      vertical-align:.62em;
+    }
+
+    .burger,.menu { display:none; }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .brand,.pill-nav,.headline,.sub,.pill-cta,.ghost,.hero-links,.lg {
+        animation:rise .78s cubic-bezier(.22,1,.36,1) both;
+      }
+      .links { animation:riseNav .78s cubic-bezier(.22,1,.36,1) both; }
+      .headline { animation-delay:.08s; animation-duration:.86s; }
+      .sub { animation-delay:.18s; animation-duration:.78s; }
+      .pill-cta,.ghost { animation-delay:.28s; animation-duration:.78s; }
+      .hero-links { animation-delay:.38s; animation-duration:.72s; }
+      .lg { animation-name:fade; animation-delay:.34s; animation-duration:1.1s; }
+      @keyframes rise {
+        from { opacity:0; transform:translateY(14px); }
+        to { opacity:1; transform:translateY(0); }
+      }
+      @keyframes riseNav {
+        from { opacity:0; transform:translate(-50%,calc(-50% + 14px)); }
+        to { opacity:1; transform:translate(-50%,-50%); }
+      }
+      @keyframes fade { from { opacity:0; } to { opacity:1; } }
+    }
+
+    @media (max-aspect-ratio:11/10) {
+      :root { --m:min(100vw / 430,1.34px); --u:var(--m); --h:var(--m); }
+      .plate-video {
+        inset:0;
+        width:100%;
+        height:100%;
+        transform:none;
+        object-position:43% center;
+      }
+      .plate::after {
+        background:none;
+      }
+      .links,.pill-nav { display:none; }
+      .brand { left:24px; top:24px; width:25px; height:39px; }
+      .burger {
+        position:absolute;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:7px;
+        right:20px;
+        top:20px;
+        width:52px;
+        height:52px;
+        padding:0 15px;
+        border:1px solid rgba(255,255,255,.14);
+        border-radius:999px;
+        background:rgba(255,255,255,.06);
+        backdrop-filter:blur(14px);
+        cursor:pointer;
+        pointer-events:auto;
+      }
+      .burger i {
+        display:block;
+        height:1px;
+        background:#fff;
+        transition:transform .3s ease;
+      }
+      .is-open .burger i:first-child { transform:translateY(4px) rotate(45deg); }
+      .is-open .burger i:last-child { transform:translateY(-4px) rotate(-45deg); }
+
+      .hero {
+        left:24px;
+        right:24px;
+        top:calc(50% - 24px);
+        width:auto;
+        transform:translateY(-50%);
+      }
+      .headline {
+        font-size:clamp(38px,9vw,68px);
+        line-height:1.08;
+        white-space:normal;
+      }
+      .headline span { display:inline; }
+      .sub {
+        margin-top:30px;
+        font-size:clamp(16px,4.2vw,24px);
+        line-height:1.35;
+        white-space:normal;
+      }
+      .eyebrow {
+        margin-bottom:12px;
+        font-size:13px;
+      }
+      .person-name {
+        margin-top:18px;
+        font-size:clamp(24px,6vw,34px);
+      }
+      .sub span { display:inline; }
+      .actions {
+        margin-top:32px;
+        gap:28px;
+      }
+      .hero-links {
+        gap:20px 44px;
+        margin-top:60px;
+        font-size:20px;
+      }
+      .pill-cta {
+        width:158px;
+        height:48px;
+        font-size:17px;
+      }
+      .ghost { font-size:17px; }
+      .actions .ghost { min-height:48px; padding:0 16px; }
+      .logos {
+        left:24px;
+        right:24px;
+        bottom:25px;
+        width:auto;
+        height:100px;
+        transform:none;
+      }
+      .lg { font-size:15px; }
+      .lg1 { left:0; top:0; bottom:auto; }
+      .lg2 { left:50%; top:0; bottom:auto; }
+      .lg3 { left:0; bottom:0; }
+      .lg4 { left:50%; bottom:0; }
+      .lg1 svg { width:25px; height:25px; }
+      .lg2 svg { width:21px; height:26px; }
+      .lg3 svg { width:24px; height:24px; }
+      .lg4 svg { width:24px; height:22px; }
+
+      .menu {
+        position:absolute;
+        inset:0;
+        z-index:4;
+        display:flex;
+        visibility:hidden;
+        opacity:0;
+        padding:120px 28px 34px;
+        background:rgba(5,5,5,.88);
+        backdrop-filter:blur(22px);
+        transition:opacity .42s ease,visibility .42s ease;
+      }
+      .is-open .menu { visibility:visible; opacity:1; }
+      .menu-inner { display:flex; flex-direction:column; width:100%; }
+      .menu-eyebrow {
+        margin:0 0 28px;
+        color:var(--muted);
+        font-size:13px;
+        text-transform:uppercase;
+        letter-spacing:.16em;
+      }
+      .menu-list { list-style:none; padding:0; margin:0; }
+      .menu-list li {
+        margin:0 0 15px;
+        color:#fff;
+        font-size:clamp(25px,8vw,38px);
+        transform:translateY(14px);
+        opacity:0;
+        transition:opacity .4s ease,transform .4s ease;
+      }
+      .menu-list li::after { content:"↗"; margin-left:10px; font-size:.6em; }
+      .is-open .menu-list li,.is-open .menu-eyebrow,.is-open .menu-foot {
+        opacity:1;
+        transform:translateY(0);
+      }
+      .menu-eyebrow,.menu-foot { opacity:0; transform:translateY(14px); transition:.4s ease; }
+      .menu-list li:nth-child(1) { transition-delay:.10s; }
+      .menu-list li:nth-child(2) { transition-delay:.16s; }
+      .menu-list li:nth-child(3) { transition-delay:.22s; }
+      .menu-list li:nth-child(4) { transition-delay:.28s; }
+      .menu-foot { margin-top:auto; display:flex; align-items:center; gap:22px; }
+      .menu-foot .pill { width:150px; height:46px; font-size:15px; }
+      .menu-foot .ghost { font-size:14px; }
+
+      .site-section {
+        min-height:0;
+        padding:80px 24px;
+      }
+      .about-layout { grid-template-columns:1fr; gap:34px; }
+      .about-copy,.about-photo { grid-column:1; grid-row:auto; }
+      .about-photo { width:min(100%,220px); aspect-ratio:1; margin:0 auto; }
+      .service-list,.experience-list { grid-template-columns:1fr; margin-top:35px; }
+      .service-item,.experience-item { min-height:0; padding:24px; }
+      .experience-item:last-child { grid-column:auto; }
+      .focus-list { grid-template-columns:1fr; gap:26px; }
+    }
+
+    @media (min-width:600px) and (max-aspect-ratio:11/10) {
+      :root { --m:min(100vw / 860,100vh / 760,1.25px); --u:var(--m); --h:var(--m); }
+      .plate-video { object-position:44% center; }
+      .headline span { display:block; }
+      .hero { top:calc(50% - 24px); }
+      .logos { display:flex; height:40px; bottom:34px; }
+      .lg { position:static; flex:1; }
+      .menu { padding-left:8vw; }
+    }
+
+    @media (min-width:600px) and (max-aspect-ratio:11/10) {
+      .logos .lg-word { margin-left:6px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      *,*::before,*::after { animation-duration:.001s!important; transition-duration:.001s!important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <div class="plate">
+      <video class="plate-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/130837c4-0244-4f37-9c61-8d801d93fd29.jpg">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104303_0c6d60b2-9353-408e-9449-585108a22fb5.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Home">
+        <svg viewBox="0 0 31.5 48.5" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="8" y1="0" x2="34.1" y2="28.9">
+              <stop stop-color="#9e9e9e"/><stop offset=".28" stop-color="#a6a6a6"/>
+              <stop offset=".4" stop-color="#3a3a3a"/><stop offset=".6" stop-color="#7a7a7a"/>
+              <stop offset=".8" stop-color="#a9a9a9"/><stop offset="1" stop-color="#ccc"/>
+            </linearGradient>
+          </defs>
+          <path d="M21.5 0v19.5h10v9.5L10 48.5v-20H.5v-10z" fill="url(#bg1)"/>
+          <rect x=".5" y="18.5" width="9" height="10" fill="#fdfdfd"/>
+          <rect x="22" y="19.5" width="9.5" height="9.5" fill="#fdfdfd"/>
+        </svg>
+      </a>
+      <a class="pill pill-nav" href="#contact"><span>Let’s Connect</span></a>
+    </header>
+
+    <main class="hero">
+      <p class="eyebrow">Business Development Leader</p>
+      <h1 class="headline"><span>Where Great Teams</span> <span>Meet Great Technology</span></h1>
+      <h2 class="person-name">Shamoon Ijaz</h2>
+      <p class="sub">
+        Business Development Team Lead | Driving Revenue Growth &amp; Marketing Expansion |
+        B2B Sales &amp; Strategic Partnerships | AI &amp; Software Solutions.
+      </p>
+      <div class="actions">
+        <a class="pill pill-cta" href="#contact"><span>Let’s Connect</span></a>
+        <a class="ghost" href="#experience">View Experience</a>
+      </div>
+      <nav class="hero-links" aria-label="Explore sections">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </main>
+
+  </div>
+
+  <section class="site-section" id="about">
+    <div class="section-inner">
+      <p class="section-label">About Me</p>
+      <div class="about-layout">
+        <figure class="about-photo">
+          <img src="../shamoon.jpeg" alt="Shamoon Ijaz">
+        </figure>
+        <div class="about-copy">
+          <h2 class="section-title">Business Development and Partnerships Professional</h2>
+          <p>I’m a <strong>Business Development and Partnerships professional</strong> focused on helping businesses grow through strategic relationships, client acquisition, and market expansion.</p>
+          <p>I work across <strong>B2B growth, technology, SaaS, AI, lead generation, and strategic partnerships</strong>, connecting businesses with the right people, opportunities, and solutions.</p>
+          <p>My approach is simple: <strong>understand the market, start the right conversations, build trust, and turn relationships into growth.</strong></p>
+          <p class="about-expertise"><strong>Business Development · Strategic Partnerships · B2B Growth · Technology · Client Acquisition</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="site-section" id="services">
+    <div class="section-inner">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">What I Help Businesses Do</h2>
+      <div class="service-list">
+        <article class="service-item">
+          <h3>Business Development</h3>
+          <p>Build qualified B2B pipelines and turn prospects into real opportunities.</p>
+        </article>
+        <article class="service-item">
+          <h3>Lead Generation</h3>
+          <p>Find the right companies, decision-makers, and conversations that matter.</p>
+        </article>
+        <article class="service-item">
+          <h3>Strategic Partnerships</h3>
+          <p>Build partnerships that open doors to new clients, markets, and opportunities.</p>
+        </article>
+        <article class="service-item">
+          <h3>Market Research</h3>
+          <p>Identify market gaps, target audiences, and growth opportunities.</p>
+        </article>
+        <article class="service-item">
+          <h3>Growth Strategy</h3>
+          <p>Create practical strategies to improve outreach, acquisition, and business growth.</p>
+        </article>
+        <article class="service-item">
+          <h3>Technology Solutions</h3>
+          <p>Connect businesses with the right AI, SaaS, software, and technical capabilities.</p>
+        </article>
+      </div>
+      <p class="service-cta">&rarr; Let’s Build Something That Grows</p>
+    </div>
+  </section>
+
+  <section class="site-section" id="experience">
+    <div class="section-inner">
+      <p class="section-label">Experience</p>
+      <h2 class="section-title">Experience That Drives Growth</h2>
+      <p class="experience-intro">A track record across <strong>business development, partnerships, client acquisition, and international growth</strong>.</p>
+      <div class="experience-list">
+        <article class="experience-item">
+          <h3>Business Development Team Lead — Preesoft</h3>
+          <em>2026 – Present</em>
+          <p>Leading BD strategy, client acquisition, and pipeline growth across international markets.</p>
+        </article>
+        <article class="experience-item">
+          <h3>Senior Business Development Executive — Preesoft</h3>
+          <em>2026 – Present</em>
+          <p>Driving B2B growth through targeted prospecting and strategic client outreach.</p>
+        </article>
+        <article class="experience-item">
+          <h3>Partnerships Manager — Nextmark.uk</h3>
+          <em>2025 – Present</em>
+          <p>Building strategic partnerships and creating new opportunities for business growth.</p>
+        </article>
+        <article class="experience-item">
+          <h3>Business Development Executive — Proviloops International</h3>
+          <em>2025 – 2026</em>
+          <p>Focused on lead generation, client acquisition, and growth-focused business development.</p>
+        </article>
+        <article class="experience-item">
+          <h3>Growth Executive — Mavericks United</h3>
+          <em>2024 – 2025</em>
+          <p>Managed international clients and supported business development and growth initiatives.</p>
+        </article>
+      </div>
+      <p class="core-expertise"><strong>Core Expertise</strong><br>B2B Growth · Business Development · Strategic Partnerships · Lead Generation · Market Research · Client Acquisition · Growth Strategy</p>
+    </div>
+  </section>
+
+  <section class="site-section contact-section" id="contact">
+    <div class="section-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Let’s build what comes next.</h2>
+      <p class="section-copy">Have a partnership opportunity, a growth challenge, or an ambitious product to take to market? Let’s start a conversation.</p>
+      <a class="contact-link" href="mailto:shamoon.ijaz@example.com">Let’s Connect</a>
+    </div>
+  </section>
+
+  <script>
+    const heroVideo = document.querySelector(".plate-video");
+
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    function syncVideoMotion() {
+      if (motionQuery.matches) {
+        heroVideo.pause();
+      } else {
+        const playRequest = heroVideo.play();
+        if (playRequest) playRequest.catch(() => {});
+      }
+    }
+    syncVideoMotion();
+    if (motionQuery.addEventListener) {
+      motionQuery.addEventListener("change", syncVideoMotion);
+    } else {
+      motionQuery.addListener(syncVideoMotion);
+    }
+
+  </script>
+</body>
+</html>
+```
